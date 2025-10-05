@@ -189,6 +189,23 @@ python3 batch_sort.py
 
 ---
 
+### 7️⃣ Enable Syncthing on Startup
+
+```bash
+# Disable any previously running system-wide Syncthing service
+sudo systemctl disable syncthing@aayush.service
+sudo systemctl stop syncthing@aayush.service
+
+# Enable Syncthing to start automatically for your user
+systemctl --user enable syncthing.service
+systemctl --user start syncthing.service
+
+# (Optional) Allow Syncthing to run even after logout
+loginctl enable-linger $USER
+```
+
+---
+
 ### ⚡ Notes / Tips
 
 * Watcher ignores `.tmp` files from Syncthing until fully written.
